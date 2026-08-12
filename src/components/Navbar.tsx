@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 export function Navbar() {
-  const { user, signOut } = useAuth()
+  const { user, profile, signOut } = useAuth()
   const navigate = useNavigate()
 
   async function handleSignOut() {
@@ -22,6 +22,11 @@ export function Navbar() {
             <Link to="/profile" className="text-sm text-gray-600 hover:text-gray-900">
               Profile
             </Link>
+            {profile?.role === 'superadmin' && (
+              <Link to="/users" className="text-sm text-gray-600 hover:text-gray-900">
+                Users
+              </Link>
+            )}
           </>
         )}
       </div>

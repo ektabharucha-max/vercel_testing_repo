@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 export function Login() {
-  const { signIn } = useAuth()
+  const { signIn, deactivated } = useAuth()
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -47,6 +47,11 @@ export function Login() {
             className="rounded-md border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-900"
           />
         </label>
+        {deactivated && (
+          <p className="text-sm text-red-600">
+            This account has been deactivated. Contact an administrator for access.
+          </p>
+        )}
         {error && <p className="text-sm text-red-600">{error}</p>}
         <button
           type="submit"
