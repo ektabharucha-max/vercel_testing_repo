@@ -16,6 +16,9 @@ export function Navbar() {
         <span className="font-semibold text-gray-900">Inventory App</span>
         {user && (
           <>
+            <Link to="/" className="text-sm text-gray-600 hover:text-gray-900">
+              Dashboard
+            </Link>
             <Link to="/inventory" className="text-sm text-gray-600 hover:text-gray-900">
               Inventory
             </Link>

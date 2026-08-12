@@ -5,6 +5,7 @@ import { SuperAdminRoute } from './components/SuperAdminRoute'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
 import { Profile } from './pages/Profile'
+import { Dashboard } from './pages/Dashboard'
 import { Inventory } from './pages/Inventory'
 import { Users } from './pages/Users'
 
@@ -13,7 +14,14 @@ function App() {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Navigate to="/inventory" replace />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
@@ -40,7 +48,7 @@ function App() {
             </SuperAdminRoute>
           }
         />
-        <Route path="*" element={<Navigate to="/inventory" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   )

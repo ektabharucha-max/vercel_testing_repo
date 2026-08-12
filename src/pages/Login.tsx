@@ -20,7 +20,7 @@ export function Login() {
       setError(error)
       return
     }
-    navigate('/inventory')
+    navigate('/')
   }
 
   return (

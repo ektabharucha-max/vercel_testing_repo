@@ -10,7 +10,7 @@ export function SuperAdminRoute({ children }: { children: ReactNode }) {
   }
 
   if (!user) return <Navigate to="/login" replace />
-  if (profile?.role !== 'superadmin') return <Navigate to="/inventory" replace />
+  if (profile?.role !== 'superadmin') return <Navigate to="/" replace />
 
   return <>{children}</>
 }
